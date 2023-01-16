@@ -1,1 +1,1 @@
-Example data to use with `ypmidid`
+Example data to use with `ypmidi`
