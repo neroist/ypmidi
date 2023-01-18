@@ -8,6 +8,9 @@ import spinny
 import yaml
 import fab
 
+const
+  Version = "v0.1.2"
+
 template withSpinny(text: string; s: Spinner; time = false; body: untyped) = 
   let currentSpinner {. inject .} = newSpinny(text, s, time)
   currentSpinner.start()
@@ -28,7 +31,7 @@ proc main(file, `out`: string = "") =
   let score = if file.splitFile().ext == ".json": readFile file
               else: $loadtoJson(readFile file)[0]
   
-  withSpinny("Making Music...", skDots, time=true):
+  withSpinny("Making Music...", skArc, time=true):
 
     createDir(outfile.parentDir)
     saveMusic(outfile, parseJson score)
@@ -36,6 +39,6 @@ proc main(file, `out`: string = "") =
     currentSpinner.success("Completed!")
 
 when isMainModule:
-  clCfg.version = "Version v0.1.1"
+  clCfg.version = "ypmidi version " & Version
 
-  dispatch main, help={"file": "The JSON or YAML file to read from", "out": "Output file for generated audio"}
+  dispatch main, cmdName="ypmidi", help={"file": "The JSON or YAML file to read from", "out": "Output file for generated audio"}
