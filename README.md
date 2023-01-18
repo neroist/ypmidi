@@ -13,3 +13,6 @@ Options:
   -f=, --file=   string  REQUIRED  The JSON or YAML file to read from 
   -o=, --out=    string  ""        Output file for generated audio 
 ```
+
+## supported audio formats
+It supports all audio formats on [Wikipedia's list of audio formats](https://en.wikipedia.org/wiki/Audio_file_format#List_of_formats), though it probably supports more. 
