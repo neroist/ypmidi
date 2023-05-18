@@ -29,14 +29,22 @@ proc fileChecks(file: string): bool =
     bad &"\"{file}\" does not exist."
     return false
 
-proc main(file, `out`: string = "", ext: string = "wav") = 
+proc main(file, `out`: string = "", ext: string = "") = 
   ## Make MIDI music with YAML or JSON files
   
   if not fileChecks(file): return
   
-  let outfile = if `out` == "": 
-      file.changeFileExt(ext)
-    else: 
+  let 
+    outext = if ext == "": 
+      "wav"
+    else:
+      ext
+
+    outfile = if `out` == "": 
+      file.changeFileExt(outext)
+    elif ext != "":
+      `out`.changeFileExt(outext)
+    else:
       `out`
 
   if outfile.fileExists():
