@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.1"
+version       = "0.2.0"
 author        = "Jasmine"
 description   = "A new awesome nimble package"
 license       = "MIT"
@@ -14,4 +14,6 @@ requires "nim >= 1.6.10"
 requires "paramidib"
 requires "cligen"
 requires "spinny"
+requires "termui"
 requires "yaml"
+requires "fab"
