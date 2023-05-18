@@ -46,8 +46,10 @@ proc main(file, `out`: string = "", ext: string = "wav") =
 
     if not confirmed: return
   
-  let score = if file.splitFile().ext == ".json": readFile file
-              else: $loadtoJson(readFile file)[0]
+  let score = if file.splitFile().ext == ".json": 
+      readFile file
+    else: 
+      $loadtoJson(readFile file)[0]
 
   echo "" # print newline
   
